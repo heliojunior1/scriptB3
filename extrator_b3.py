@@ -44,6 +44,10 @@ def buscar_dados_ibovespa():
         df = pd.DataFrame(lista_acoes)
         print(f"DataFrame criado com {df.shape[0]} linhas e {df.shape[1]} colunas.")
 
+        data_de_hoje = datetime.now().date()
+        df['data_pregao'] = pd.to_datetime(data_de_hoje)
+        print(f"Coluna 'data_pregao' adicionada com a data: {data_de_hoje}")
+
         # Pré-visualização das 5 primeiras linhas do DataFrame
         print("\nPré-visualização dos dados:")
         print(df.head())
